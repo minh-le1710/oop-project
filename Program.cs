@@ -1,8 +1,16 @@
-﻿IPaymentMethod[] paymentMethods =
+﻿Console.WriteLine("=== Trước OCP: dùng if/else ===");
+
+PaymentProcessorBeforeOcp beforeOcp = new PaymentProcessorBeforeOcp();
+beforeOcp.PrintPaymentDetails("ApplePay");
+
+Console.WriteLine();
+Console.WriteLine("=== Sau OCP: dùng đa hình ===");
+
+IPaymentMethod[] paymentMethods =
 {
     new QRPayment(),
     new TransferPayment(),
-    new CardPayment("0000 0000 0000 1234")
+    new CardPayment("0000 0000 0000 1234"),
 };
 
 foreach (IPaymentMethod paymentMethod in paymentMethods)
@@ -20,3 +28,5 @@ IPaymentMethod repeatedPayment = new QRPayment();
 
 repeatedPayment.Pay(repeatedOrder);
 repeatedPayment.Pay(repeatedOrder);
+
+
