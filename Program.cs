@@ -11,6 +11,7 @@ IPaymentMethod[] paymentMethods =
     new QRPayment(),
     new TransferPayment(),
     new CardPayment("0000 0000 0000 1234"),
+    new ApplePayPayment()
 };
 
 foreach (IPaymentMethod paymentMethod in paymentMethods)
